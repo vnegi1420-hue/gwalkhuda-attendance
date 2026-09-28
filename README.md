@@ -1,20 +1,24 @@
-# रा।इ।का। ग्वालखुड़ा — दैनिक डिजिटल उपस्थिति
+# रा।इ।का। ग्वालखुड़ा — Attendance App
 
-Online attendance app for **Rajkiya Inter College Gwalkhuda, Pabau, Pauri Garhwal (Uttarakhand)**.
-
-## Live URL
-After enabling GitHub Pages:
+## Live URL (after enabling Pages)
 https://vnegi1420-hue.github.io/gwalkhuda-attendance/
 
-## Features
-- Class teacher & Principal login
-- Daily attendance (P/A/L/H)
-- Monthly class reports & overall report
-- Holiday management (Principal only)
-- Teachers log (Principal only)
+## Enable GitHub Pages
+1. Open repo **Settings** → **Pages**
+2. Source: **Deploy from a branch**
+3. Branch: **main** / folder: **/ (root)**
+4. Save
+
+## Required files
+- `index.html` (loader) — already on repo
+- `c0.txt`, `c1.txt`, `c2.txt`, `c3.txt` (app payload)
+
+Upload the four `c*.txt` files via GitHub: **Add file → Upload files**
+
+## Alternative: Netlify Drop
+1. Download `index.html` (full single-file app)
+2. Open https://app.netlify.com/drop
+3. Drag the file → get instant URL
 
 ## Note
-Data is stored in the browser (localStorage) on each device.
-
-## Deploy
-GitHub Pages: Settings → Pages → Source: Deploy from branch `main` / root.
+Data is stored in browser localStorage per device.
