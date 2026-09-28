@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="hi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>रा।इ।का। ग्वालखुड़ा</title>
+<style>body{font-family:system-ui;display:grid;place-items:center;min-height:100vh;margin:0;background:#0f172a;color:#fff}
+.spin{width:40px;height:40px;border:3px solid #334155;border-top-color:#38bdf8;border-radius:50%;animation:s .8s linear infinite;margin:0 auto 12px}
+@keyframes s{to{transform:rotate(360deg)}}</style></head>
+<body><div style="text-align:center"><div class="spin"></div><div id="m">ऐप लोड हो रहा है…</div></div>
+<script>
+(async function(){
+  try {
+    const [a,b] = await Promise.all([
+      fetch("p1.txt").then(r=>r.text()),
+      fetch("p2.txt").then(r=>r.text())
+    ]);
+    const b64 = a+b;
+    const bin = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+    const ds = new DecompressionStream("gzip");
+    const stream = new Blob([bin]).stream().pipeThrough(ds);
+    const html = await new Response(stream).text();
+    document.open(); document.write(html); document.close();
+  } catch(e) {
+    document.getElementById("m").textContent = "लोड त्रुटि: " + e;
+  }
+})();
+</script></body></html>
