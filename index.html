@@ -8,11 +8,8 @@
 <script>
 (async function(){
   try {
-    const [a,b] = await Promise.all([
-      fetch("p1.txt").then(r=>r.text()),
-      fetch("p2.txt").then(r=>r.text())
-    ]);
-    const b64 = a+b;
+    const parts = await Promise.all([0,1,2,3].map(i => fetch("c"+i+".txt").then(r=>r.text())));
+    const b64 = parts.join("");
     const bin = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
     const ds = new DecompressionStream("gzip");
     const stream = new Blob([bin]).stream().pipeThrough(ds);
